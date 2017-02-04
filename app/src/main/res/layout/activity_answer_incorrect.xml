@@ -10,4 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ac.csun.team3.AnswerIncorrect">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/incorrect"
+        android:content_description="@string/incorrect_alt_text"/>
 </RelativeLayout>
