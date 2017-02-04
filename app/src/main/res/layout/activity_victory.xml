@@ -11,12 +11,14 @@
     tools:context="com.ac.csun.team3.Victory">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/settings_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/test"/>
+        android:id="@+id/settings_button"
+        android:background="@drawable/settings_icon" />
+
+
 
     <TextView
         android:layout_width="100dp"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="@string/repeat_button"
+        android:text="Repeat"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:id="@+id/button"
@@ -16,7 +16,7 @@
         android:textStyle="bold|italic"/>
 
     <Button
-        android:text="@string/skip_button"
+        android:text="Skip"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:id="@+id/button2"

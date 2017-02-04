@@ -13,17 +13,19 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/incorrect"
+        android:alignParentBottom="true"
+        android:src="@drawable/xmark_icon"
         android:content_description="@string/incorrect_alt_text"/>
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/settings_button"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/test"/>
+        android:src="@drawable/settings_icon"/>
     <TextView
-    android:layout_width="100dp"
-    android:layout_height="30dp"
-    android:text="incorrect"/>
+    android:layout_width="500dp"
+    android:layout_height="165dp"
+    android:text="incorrect"
+        android:textSize="50dp"/>
 </RelativeLayout>
