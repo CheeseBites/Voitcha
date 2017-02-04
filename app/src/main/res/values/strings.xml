@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Team3</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="repeat_button">Click to Repeat.</string>
-    <string name="skip_button">Try Another Question.</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
@@ -75,10 +74,12 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
 
-    // victoria
+
     <string name="intro_message">For security reasons, please answer the following question
         before proceeding.</string>
-    <string name="volume_prompt">Turn up your volume, then tap the screen to continue.</string>
-    <string name="alt_text_pic1">Check Mark, correct!</string>
-    <string name="alt_text_pic2">Wrong Answer</string>
+    <string name="instructions">Turn up your volume, then tap the screen to continue.</string>
+    <string name="app_speaking">Speaking now...</string>
+    <string name="alt_text_correct">Check Mark, correct!</string>
+    <string name="alt_text_incorrect">Wrong Answer</string>
+
 </resources>
