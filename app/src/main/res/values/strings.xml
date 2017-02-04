@@ -73,4 +73,11 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
+    // victoria
+    <string name="intro_message">For security reasons, please answer the following question
+        before proceeding.</string>
+    <string name="volume_prompt">Turn up your volume, then tap the screen to continue.</string>
+    <string name="alt_text_pic1">Check Mark, correct!</string>
+    <string name="alt_text_pic2">Wrong Answer</string>
 </resources>
