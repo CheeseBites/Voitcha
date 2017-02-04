@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Listening">
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,8 @@
         <activity android:name=".AnswerCorrect" />
         <activity android:name=".AnswerIncorrect" />
         <activity android:name=".Victory" />
-        <activity android:name=".Retry"></activity>
+        <activity android:name=".Retry"/>
+        <activity android:name=".Listening"/>
     </application>
 
 </manifest>

@@ -25,29 +25,63 @@ import java.util.Locale;
 
 import static android.R.attr.text;
 
-public class Listening extends Activity implements View.OnClickListener {
+public class Listening extends Activity  {
+
+    private TextToSpeech tts;
+
     private ImageView settingsButton;
     private long startTime = 0L;
     private long timeInMillis=0L;
     private long delayTime=8000L;
     private Handler wait = new Handler();
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listening);
+       // settingsButton = (ImageView) findViewById(R.id.settings_button);
+       // settingsButton.setOnClickListener(this);
+       // startTime = SystemClock.uptimeMillis();
+       // wait.postDelayed(waitTime, 0);
+        //findViewById(R.id.micButton).setOnClickListener(this);
 
-    private TextToSpeech tts= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-        @Override
-        public void onInit(int status) {
-            if (status == TextToSpeech.SUCCESS) {
-                int result = tts.setLanguage(Locale.US);
-                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "This Language is not supported");
+
+         tts= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = tts.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "This Language is not supported");
+                    }
+                   // speak("Listening...");
+                    speak("what is 2 +2 ?");
+
+                } else {
+                    Log.e("TTS", "Initilization Failed!");
                 }
-                speak("Listening...");
-
-            } else {
-                Log.e("TTS", "Initilization Failed!");
             }
-        }
-    });
+        });
+
+        findViewById(R.id.micButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    listen();
+
+            }
+        });
+
+        findViewById(R.id.replayButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak("what is 2 + 2 ?");
+            }
+        });
+    }
+
+
+
 
         private void listen() {
             Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -87,6 +121,15 @@ public class Listening extends Activity implements View.OnClickListener {
 
     private void recognition(String text){
         Log.e("Speech",""+text);
+
+        if(text.equals("4") || text.equals("four"))
+        {
+            Log.i("Feedback", "That is correct!");
+        }
+        else
+        {
+            Log.i("Feedback","incorrec!");
+        }
     }
 
     @Override
@@ -96,28 +139,6 @@ public class Listening extends Activity implements View.OnClickListener {
             tts.shutdown();
         }
         super.onDestroy();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listening);
-        settingsButton = (ImageView) findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(this);
-        startTime = SystemClock.uptimeMillis();
-        wait.postDelayed(waitTime, 0);
-        findViewById(R.id.micButton).setOnClickListener(this);
-    }
-
-    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
-    public void onClick(View v) {
-        if (v.getId()==R.id.settings_button){
-            startActivity(new Intent(Listening.this,SettingsActivity.class));
-        }
-        else if (v.getId()==R.id.micButton){
-            listen();
-        }
-
     }
 
     private Runnable waitTime = new Runnable(){
@@ -136,5 +157,19 @@ public class Listening extends Activity implements View.OnClickListener {
         if(correct) startActivity(new Intent(Listening.this,AnswerCorrect.class));
         else startActivity(new Intent(Listening.this,AnswerIncorrect.class));
     }
+
+
+
+    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
+//    public void onClick(View v) {
+//       // if (v.getId()==R.id.settings_button){
+//        //   startActivity(new Intent(Listening.this,SettingsActivity.class));
+//       // }
+//        //else if (v.getId()==R.id.micButton){
+//            listen();
+//       // }
+//
+//    }
+
 
 }

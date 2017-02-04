@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class LaunchActivity extends Activity implements View.OnClickListener {
+public class LaunchActivity extends Activity {//implements View.OnClickListener {
     private ImageView settingsButton;
     private RelativeLayout launch;
     @Override
@@ -17,19 +17,26 @@ public class LaunchActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        settingsButton = (ImageView)findViewById(R.id.settings_button);
+        //settingsButton = (ImageView)findViewById(R.id.settings_button);
         launch = (RelativeLayout)findViewById(R.id.activity_launch);
-        settingsButton.setOnClickListener(this);
-        launch.setOnClickListener(this);
+        //settingsButton.setOnClickListener(this);
+        //launch.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId()==R.id.settings_button){
-            startActivity(new Intent(LaunchActivity.this,SettingsActivity.class));
-        }
-        else{
-            startActivity(new Intent(LaunchActivity.this,QuestionStartScreen.class));
-        }
+//    @Override
+//    public void onClick(View v) {
+//        if (v.getId()==R.id.settings_button){
+//            startActivity(new Intent(LaunchActivity.this,SettingsActivity.class));
+//        }
+//        else{
+//            startActivity(new Intent(LaunchActivity.this,QuestionStartScreen.class));
+//        }
+//    }
+
+
+    public void captchaScreen(View v){
+
+        startActivity(new Intent(LaunchActivity.this,Listening.class));
+
     }
 }
