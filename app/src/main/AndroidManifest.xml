@@ -19,12 +19,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".QuestionStartScreen" />
         <activity android:name=".QuestionAsking" />
-        <activity android:name=".AnswerCorrect" />
-        <activity android:name=".AnswerIncorrect" />
         <activity android:name=".Victory" />
-        <activity android:name=".Retry"/>
         <activity android:name=".Listening"/>
     </application>
 
