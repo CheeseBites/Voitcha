@@ -29,6 +29,6 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="correct"/>
+        android:id="@+id/correct"/>
 
 </RelativeLayout>
