@@ -2,12 +2,16 @@ package com.ac.csun.team3;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.util.Locale;
 
 public class Listening extends Activity implements View.OnClickListener {
     private ImageView settingsButton;
@@ -17,10 +21,7 @@ public class Listening extends Activity implements View.OnClickListener {
     private Handler wait = new Handler();
 
 
-    private TextToSpeech tts;
-
-
-    tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+    private TextToSpeech tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
         @Override
         public void onInit(int status) {
             if (status == TextToSpeech.SUCCESS) {
@@ -34,7 +35,7 @@ public class Listening extends Activity implements View.OnClickListener {
                 Log.e("TTS", "Initilization Failed!");
             }
         }
-    })
+    });
 
     private void speak(String text){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
