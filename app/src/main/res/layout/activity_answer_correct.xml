@@ -11,9 +11,11 @@
     tools:context="com.ac.csun.team3.AnswerCorrect">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:src="@drawable/checkmark"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/alt_text_correct"/>
 
 </RelativeLayout>
