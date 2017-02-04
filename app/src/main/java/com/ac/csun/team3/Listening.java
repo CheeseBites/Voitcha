@@ -25,51 +25,76 @@ import java.util.Locale;
 
 import static android.R.attr.text;
 
-public class Listening extends Activity implements View.OnClickListener {
+public class Listening extends Activity  {
+
+    private TextToSpeech tts;
+
     private ImageView settingsButton;
     private long startTime = 0L;
     private long timeInMillis=0L;
     private long delayTime=8000L;
     private Handler wait = new Handler();
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listening);
+        // settingsButton = (ImageView) findViewById(R.id.settings_button);
+        // settingsButton.setOnClickListener(this);
+        // startTime = SystemClock.uptimeMillis();
+        // wait.postDelayed(waitTime, 0);
+        //findViewById(R.id.micButton).setOnClickListener(this);
 
-    private TextToSpeech tts= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-        @Override
-        public void onInit(int status) {
-            if (status == TextToSpeech.SUCCESS) {
-                int result = tts.setLanguage(Locale.US);
-                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "This Language is not supported");
+
+        tts= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = tts.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "This Language is not supported");
+                    }
+                    // speak("Listening...");
+                    speak("what is 2 +2 ?");
+
+                } else {
+                    Log.e("TTS", "Initilization Failed!");
                 }
-                speak("Listening...");
-
-            } else {
-                Log.e("TTS", "Initilization Failed!");
             }
-        }
-    });
+        });
 
-        private void listen() {
-            Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-            i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
-
-            try {
-                startActivityForResult(i, 100);
-            } catch (ActivityNotFoundException a) {
-                Toast.makeText(Listening.this, "Your device doesn't support Speech Recognition", Toast.LENGTH_SHORT).show();
+        findViewById(R.id.micButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listen();
             }
-        }
+        });
+    }
 
 
-        private void speak(String text) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
-            } else {
-                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-            }
+
+
+    private void listen() {
+        Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
+
+        try {
+            startActivityForResult(i, 100);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(Listening.this, "Your device doesn't support Speech Recognition", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void speak(String text) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        } else {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
 
 
 
@@ -87,6 +112,15 @@ public class Listening extends Activity implements View.OnClickListener {
 
     private void recognition(String text){
         Log.e("Speech",""+text);
+
+        if(text.equals("4") || text.equals("four"))
+        {
+            Log.i("Feedback", "That is correct!");
+        }
+        else
+        {
+            Log.i("Feedback","incorrec!");
+        }
     }
 
     @Override
@@ -96,28 +130,6 @@ public class Listening extends Activity implements View.OnClickListener {
             tts.shutdown();
         }
         super.onDestroy();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listening);
-        settingsButton = (ImageView) findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(this);
-        startTime = SystemClock.uptimeMillis();
-        wait.postDelayed(waitTime, 0);
-        findViewById(R.id.micButton).setOnClickListener(this);
-    }
-
-    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
-    public void onClick(View v) {
-        if (v.getId()==R.id.settings_button){
-            startActivity(new Intent(Listening.this,SettingsActivity.class));
-        }
-        else if (v.getId()==R.id.micButton){
-            listen();
-        }
-
     }
 
     private Runnable waitTime = new Runnable(){
@@ -136,5 +148,19 @@ public class Listening extends Activity implements View.OnClickListener {
         if(correct) startActivity(new Intent(Listening.this,AnswerCorrect.class));
         else startActivity(new Intent(Listening.this,AnswerIncorrect.class));
     }
+
+
+
+    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
+//    public void onClick(View v) {
+//       // if (v.getId()==R.id.settings_button){
+//        //   startActivity(new Intent(Listening.this,SettingsActivity.class));
+//       // }
+//        //else if (v.getId()==R.id.micButton){
+//            listen();
+//       // }
+//
+//    }
+
 
 }

@@ -8,32 +8,72 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ac.csun.team3.Listening"><![CDATA[
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/settings_button"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/test"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:text="listening"/>
-
-
-        android:orientation="horizontal"
+    android:orientation="horizontal"
+    tools:context="com.ac.csun.team3.Listening">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp">
+        android:layout_weight="1">
 
-    ]]>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <ImageButton
+            <TextView
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="@string/record_button"
+                android:id="@+id/record_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="@string/repeat_button"
+                android:id="@+id/repeat_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:textSize="25dp"
+                android:text="@string/skip_button"
+                android:id="@+id/skip_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                />
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+
+        <ImageButton
             android:src="@drawable/mic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,8 +84,16 @@
             android:src="@drawable/replay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/imageButton2"
+            android:id="@+id/replayButton"
+            android:layout_weight="1" />
+        <ImageButton
+            android:src="@drawable/skip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/skipButton"
             android:layout_weight="1" />
 
+    </LinearLayout>
 
-</LinearLayout>
+
+    </LinearLayout>
