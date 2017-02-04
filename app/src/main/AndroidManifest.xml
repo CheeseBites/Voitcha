@@ -24,6 +24,8 @@
         <activity android:name=".AnswerCorrect" />
         <activity android:name=".AnswerIncorrect" />
         <activity android:name=".Victory"></activity>
+
+
     </application>
 
 </manifest>
