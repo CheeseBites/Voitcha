@@ -29,7 +29,7 @@ public class Listening extends Activity implements View.OnClickListener {
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     Log.e("TTS", "This Language is not supported");
                 }
-                speak("Hello");
+                speak("Listening");
 
             } else {
                 Log.e("TTS", "Initilization Failed!");
@@ -64,6 +64,7 @@ public class Listening extends Activity implements View.OnClickListener {
         wait.postDelayed(waitTime,0);
     }
 
+    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
     public void onClick(View v) {
         if (v.getId()==R.id.settings_button){
             startActivity(new Intent(Listening.this,SettingsActivity.class));
@@ -81,7 +82,7 @@ public class Listening extends Activity implements View.OnClickListener {
             }
         }
     };
-    private void checkAnswer(){
+    private void checkAnswer(){ //TODO: FIX
         boolean correct=true;
         if(correct) startActivity(new Intent(Listening.this,AnswerCorrect.class));
         else startActivity(new Intent(Listening.this,AnswerIncorrect.class));
