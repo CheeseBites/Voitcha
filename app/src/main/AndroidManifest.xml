@@ -18,7 +18,12 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".QuestionStartScreen" />
+        <activity android:name=".QuestionAsking" />
+        <activity android:name=".Listening" />
+        <activity android:name=".AnswerCorrect" />
+        <activity android:name=".AnswerIncorrect" />
+        <activity android:name=".Victory"></activity>
     </application>
 
 </manifest>
