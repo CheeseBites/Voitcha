@@ -13,9 +13,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/xmark_icon"
-        android:content_description="@string/incorrect_alt_text"/>
+        android:contentDescription="@string/alt_text_incorrect"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
