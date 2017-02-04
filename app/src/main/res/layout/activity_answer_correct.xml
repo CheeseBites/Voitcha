@@ -10,4 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ac.csun.team3.AnswerCorrect">
 
+    <ImageView
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:id="@+id/settings_button"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:src="@drawable/test"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="correct"/>
+
 </RelativeLayout>

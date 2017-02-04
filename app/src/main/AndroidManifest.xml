@@ -23,7 +23,8 @@
         <activity android:name=".Listening" />
         <activity android:name=".AnswerCorrect" />
         <activity android:name=".AnswerIncorrect" />
-        <activity android:name=".Victory"></activity>
+        <activity android:name=".Victory" />
+        <activity android:name=".Retry"></activity>
     </application>
 
 </manifest>
