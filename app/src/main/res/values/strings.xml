@@ -82,6 +82,4 @@
     <string name="correct_text">Correct!</string>
     <string name="incorrect_text">Incorrect!</string>
     <string name ="welcome_text">Please turn up the volume and tap to continue</string>
-    <string name="correct_text">Correct!</string>
-    <string name="incorrect_text">Incorrect!</string>
 </resources>

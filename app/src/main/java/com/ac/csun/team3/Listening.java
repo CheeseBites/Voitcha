@@ -155,8 +155,7 @@ public class Listening extends Activity  {
     };
     private void checkAnswer(){ //TODO: FIX
         boolean correct=true;
-        if(correct) startActivity(new Intent(Listening.this,AnswerCorrect.class));
-        else startActivity(new Intent(Listening.this,AnswerIncorrect.class));
+
     }
 
 

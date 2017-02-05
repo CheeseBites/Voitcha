@@ -26,7 +26,7 @@ public class Victory extends Activity implements View.OnClickListener{
             startActivity(new Intent(Victory.this,SettingsActivity.class));
         }
         else{
-            startActivity(new Intent(Victory.this,QuestionStartScreen.class));
+            startActivity(new Intent(Victory.this,LaunchActivity.class));
         }
     }
 }
