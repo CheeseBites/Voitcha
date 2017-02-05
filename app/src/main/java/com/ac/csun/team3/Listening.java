@@ -35,7 +35,6 @@ public class Listening extends Activity {
         setContentView(R.layout.activity_listening);
 
 
-
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -52,6 +51,7 @@ public class Listening extends Activity {
             }
         });
 
+        //handle event clicks for mic
         findViewById(R.id.micButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +59,7 @@ public class Listening extends Activity {
             }
         });
 
+        //handle event clicks for replay button
         findViewById(R.id.replayButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class Listening extends Activity {
             }
         });
 
+        //handle event clicks for replay button
         findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,6 +80,7 @@ public class Listening extends Activity {
 
 
     private void listen() {
+        //set up params for intent listener
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
@@ -99,10 +102,10 @@ public class Listening extends Activity {
         }
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //get user input here
         if (requestCode == 100) {
             if (resultCode == RESULT_OK && null != data) {
                 ArrayList<String> res = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -116,13 +119,16 @@ public class Listening extends Activity {
         Log.e("Speech", "" + text);
 
         if (text.equals("" + randQuestion.answer) || text.equals("" + randQuestion.answer)) {
-            Log.i("Feedback", "That is correct!"+ randQuestion.answer);
+           // Log.i("Feedback", "That is correct!"+ randQuestion.answer);
+            speak("Correct! ");
             startActivity(new Intent(Listening.this,Victory.class));
         } else {
             Log.i("Feedback", "incorrect!" + randQuestion.answer);
             counter++;
+            int triesLeft =  MAX_TRIES - counter;
+            speak("Incorrect!, You have " + triesLeft + " tries left");
             if (counter >= MAX_TRIES) {
-                Log.i("Feedback", "Max tries reached.");
+                //Log.i("Feedback", "Max tries reached.");
                 startActivity(new Intent(Listening.this,Defeat.class));
             }
         }
