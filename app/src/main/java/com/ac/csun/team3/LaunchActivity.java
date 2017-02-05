@@ -11,7 +11,9 @@ import android.widget.RelativeLayout;
 
 public class LaunchActivity extends Activity implements OnClickListener {
     private ImageView settingsButton;
+    // entire screen functions as a button to advance to next screen
     private RelativeLayout launch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

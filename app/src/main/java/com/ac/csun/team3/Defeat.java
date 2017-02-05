@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
-
+// defeat activity is the end screen that displays incorrect after all tries
 public class Defeat extends Activity implements View.OnClickListener{
     private RelativeLayout defeated;
 
