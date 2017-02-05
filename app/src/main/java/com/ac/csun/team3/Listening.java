@@ -148,7 +148,6 @@ public class Listening extends Activity  {
                 Log.i("Feedback", "Max tries reached.");
             }
         }
-    }
 
     @Override
     public void onDestroy() {
