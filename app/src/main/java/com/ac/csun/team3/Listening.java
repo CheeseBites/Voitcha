@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
+/**
+ * Created by the team on 2/3/2017.
+ * Functional Capcha Replacement Page. Asks the user a random simple math question (via voice)
+ * And expects an answer via voice.
+ */
 
 
 public class Listening extends Activity {
