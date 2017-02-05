@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.LinearLayout;
 
@@ -74,19 +75,15 @@ public class SettingsActivity extends Activity implements OnClickListener{
     }
 
 
-
-
-
-
-
-
+    /**
+     * Takes input from Spinner object and selects color for the background of the device
+     */
     public class CustomOnItemSelectedListener implements OnItemSelectedListener {
         LinearLayout l1 = (LinearLayout)findViewById(R.id.activity_settings);
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-//            Toast.makeText(parent.getContext(),
-//                      parent.getItemAtPosition(pos).toString(),
-//                    Toast.LENGTH_LONG).show();
+
             String colorSelection = parent.getItemAtPosition(pos).toString();
+           Spinner textElement = (Spinner) findViewById(R.id.color_spinner);
             switch(colorSelection){
                 case "White":
                     l1.setBackgroundColor(Color.WHITE);
@@ -106,6 +103,11 @@ public class SettingsActivity extends Activity implements OnClickListener{
 
                 case "Yellow":
                     l1.setBackgroundColor(Color.YELLOW);
+                    break;
+
+                case "Dark Gray":
+                    l1.setBackgroundColor(Color.DKGRAY);
+                    textElement.setDrawingCacheBackgroundColor(Color.WHITE);
                     break;
 
             }
