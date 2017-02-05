@@ -27,6 +27,7 @@ import static android.R.attr.text;
 
 public class Listening extends Activity  {
 
+    private static final int MAX_TRIES = 3;
     private TextToSpeech tts;
 
     private ImageView settingsButton;
@@ -37,6 +38,7 @@ public class Listening extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final QuestionGenerator randQuestion = new QuestionGenerator();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening);
@@ -56,7 +58,8 @@ public class Listening extends Activity  {
                         Log.e("TTS", "This Language is not supported");
                     }
                    // speak("Listening...");
-                    speak("what is 2 +2 ?");
+
+                    speak(randQuestion.question);
 
                 } else {
                     Log.e("TTS", "Initilization Failed!");
@@ -76,7 +79,16 @@ public class Listening extends Activity  {
         findViewById(R.id.replayButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak("what is 2 + 2 ?");
+                speak(randQuestion.question);
+            }
+        });
+
+        findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
+            QuestionGenerator nextQuestion = new QuestionGenerator();
+
+            @Override
+            public void onClick(View v) {
+                speak(nextQuestion.question);
             }
         });
     }
@@ -122,14 +134,19 @@ public class Listening extends Activity  {
 
     private void recognition(String text){
         Log.e("Speech",""+text);
-
+        // counter for number of tries
+        int counter = 0;
+        // if(text.equals(randQuestion.answer)
         if(text.equals("4") || text.equals("four"))
         {
             Log.i("Feedback", "That is correct!");
         }
         else
-        {
-            Log.i("Feedback","incorrec!");
+            Log.i("Feedback","incorrect!");
+            counter++;
+            if(counter == MAX_TRIES) {
+                Log.i("Feedback", "Max tries reached.");
+            }
         }
     }
 
