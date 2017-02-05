@@ -58,11 +58,24 @@
     <item>3</item>
 </string-array>
 
+
+    <string name="color_prompt">Choose a color</string>
+    <string-array name="color_array">
+        <item>White</item>
+        <item>Pink</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Purple</item>
+    </string-array>
+
 <string-array name="multi_select_list_preference_default_value" />
 
 <string name="pref_title_system_sync_settings">System sync settings</string>
 
 <!-- Example settings for Notifications -->
+    <string name="submit_text">Submit</string>
+    <string name="color_text">Color</string>
     <string name="pref_header_notifications">Notifications</string>
     <string name="pref_title_new_message_notifications">New message notifications</string>
     <string name="pref_title_ringtone">Ringtone</string>
