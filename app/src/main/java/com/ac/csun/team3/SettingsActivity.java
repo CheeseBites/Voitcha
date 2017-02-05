@@ -95,7 +95,7 @@ public class SettingsActivity extends Activity implements OnClickListener{
                     l1.setBackgroundColor(Color.WHITE);
                     break;
 
-                case "Red":
+                case "Pink":
                     l1.setBackgroundColor(Color.MAGENTA);
                     break;
 
@@ -107,7 +107,7 @@ public class SettingsActivity extends Activity implements OnClickListener{
                     l1.setBackgroundColor(Color.GREEN);
                     break;
 
-                case "Purple":
+                case "Yellow":
                     l1.setBackgroundColor(Color.YELLOW);
                     break;
 
