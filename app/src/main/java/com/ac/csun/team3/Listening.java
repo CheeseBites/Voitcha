@@ -26,7 +26,7 @@ import java.util.Locale;
 import static android.R.attr.text;
 
 public class Listening extends Activity {
-
+    private QuestionGenerator randQuestion;
     private static final int MAX_TRIES = 3;
     private TextToSpeech tts;
 
@@ -37,7 +37,7 @@ public class Listening extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final QuestionGenerator randQuestion = new QuestionGenerator();
+        randQuestion = new QuestionGenerator();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening);
@@ -79,11 +79,11 @@ public class Listening extends Activity {
         });
 
         findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
-            QuestionGenerator nextQuestion = new QuestionGenerator();
 
             @Override
             public void onClick(View v) {
-                speak(nextQuestion.question);
+                randQuestion = new QuestionGenerator();
+                speak(randQuestion.question);
             }
         });
     }
