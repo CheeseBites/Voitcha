@@ -30,6 +30,7 @@ public class LaunchActivity extends Activity implements OnClickListener {
         launch.setOnClickListener(this);
     }
 
+    //Press Gear to go to Settings panel. Press anywhere else to advance to the main app.
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.settings_button){

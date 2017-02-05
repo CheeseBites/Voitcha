@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /**
  * Created by Ian / Victoria, 2/4/2017
- * If the user enters a correct answer, they are informed that they are "dank" and are sent here
- * In an actual implementation, this would become a return link to the calling source page
- * This page is also a button that returns to the launch page
+ * If the user enters a correct answer, they are sent here.
+ * They may or may not also be informed that they are "dank".
+ * In an actual implementation, this would become a return link to the calling source page.
+ * This page is also a button that returns to the launch page.
  */
-
 public class Victory extends Activity implements View.OnClickListener{
     private RelativeLayout Victory;
 
@@ -24,6 +23,7 @@ public class Victory extends Activity implements View.OnClickListener{
         Victory.setOnClickListener(this);
     }
 
+    //Return to Launch. Replace this with "return to wherever you came from"
     public void onClick(View v) {
         startActivity(new Intent(Victory.this,LaunchActivity.class));
     }

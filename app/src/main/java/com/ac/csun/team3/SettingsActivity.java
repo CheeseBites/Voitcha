@@ -1,8 +1,5 @@
 package com.ac.csun.team3;
 
-
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,10 +16,11 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import android.widget.AdapterView;
 
-
-
-
-
+/**
+ * Created by George, 2/4/2017
+ * Simple Settings panel, used to handle changing app visuals.
+ * At present only effects background colors.
+ */
 
 public class SettingsActivity extends Activity implements OnClickListener{
     /**
@@ -68,9 +66,8 @@ public class SettingsActivity extends Activity implements OnClickListener{
         btnSubmit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SettingsActivity.this,
-                        "OnClickListener : " + "\nSpinner : " + String.valueOf(spinner.getSelectedItem()),
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(SettingsActivity.this, "OnClickListener : " + "\nSpinner : " +
+                                String.valueOf(spinner.getSelectedItem()),Toast.LENGTH_LONG).show();
             }
         });
 
