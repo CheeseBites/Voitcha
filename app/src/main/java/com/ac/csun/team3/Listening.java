@@ -29,11 +29,11 @@ public class Listening extends Activity  {
 
     private TextToSpeech tts;
 
-    private ImageView settingsButton;
-    private long startTime = 0L;
-    private long timeInMillis=0L;
-    private long delayTime=8000L;
-    private Handler wait = new Handler();
+//    private ImageView settingsButton;
+//    private long startTime = 0L;
+//    private long timeInMillis=0L;
+//    private long delayTime=8000L;
+//    private Handler wait = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class Listening extends Activity  {
                         Log.e("TTS", "This Language is not supported");
                     }
                    // speak("Listening...");
-                    speak("what is 2 +2 ?");
+                    speak("what is 2 +2 ?"); //make this link to Questions
 
                 } else {
                     Log.e("TTS", "Initilization Failed!");
@@ -80,7 +80,6 @@ public class Listening extends Activity  {
             }
         });
     }
-
 
 
 
@@ -129,7 +128,7 @@ public class Listening extends Activity  {
         }
         else
         {
-            Log.i("Feedback","incorrec!");
+            Log.i("Feedback","incorrect!");
         }
     }
 
@@ -141,7 +140,9 @@ public class Listening extends Activity  {
         }
         super.onDestroy();
     }
-
+/*
+    //This isn't being used right now but I'm keeping it as an example
+    //Loop to make a 'waiting time' delay
     private Runnable waitTime = new Runnable(){
         public void run(){
             timeInMillis=SystemClock.uptimeMillis();
@@ -157,19 +158,8 @@ public class Listening extends Activity  {
         boolean correct=true;
 
     }
+*/
 
-
-
-    //Ian: Settings button, wait timer on answer, CheckAnswer (need to fix that logic)
-//    public void onClick(View v) {
-//       // if (v.getId()==R.id.settings_button){
-//        //   startActivity(new Intent(Listening.this,SettingsActivity.class));
-//       // }
-//        //else if (v.getId()==R.id.micButton){
-//            listen();
-//       // }
-//
-//    }
 
 
 }

@@ -11,8 +11,20 @@
     tools:context="com.ac.csun.team3.Victory">
 
 
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/doge"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView" />
+
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:text="retry"/>
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Victory! Tap to retry."
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
 </RelativeLayout>
