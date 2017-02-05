@@ -17,34 +17,21 @@ public class LaunchActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        //settingsButton = (ImageView)findViewById(R.id.settings_button);
-        Button continueButton = (Button)findViewById(R.id.welcomeButton);
-        continueButton.setOnClickListener(this);
-        //launch = (RelativeLayout)findViewById(R.id.activity_launch);
-        //settingsButton.setOnClickListener(this);
-        //launch.setOnClickListener(this);
-        //captchaScreen();
+        settingsButton = (ImageView)findViewById(R.id.settings_button);
+        launch = (RelativeLayout)findViewById(R.id.activity_launch);
+        settingsButton.setOnClickListener(this);
+        launch.setOnClickListener(this);
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        if (v.getId()==R.id.settings_button){
-//            startActivity(new Intent(LaunchActivity.this,SettingsActivity.class));
-//        }
-//        else{
-//            startActivity(new Intent(LaunchActivity.this,QuestionStartScreen.class));
-//        }
-//    }
-
-
-//    public void captchaScreen(View v){
-//
-//        startActivity(new Intent(LaunchActivity.this,Listening.class));
-//
-//    }
 
     @Override
-    public void onClick(View view) {
-        startActivity(new Intent(LaunchActivity.this,Listening.class));
+    public void onClick(View v) { //The full screen is a button handler, used to advance.
+        //However, the Settings gear button links to the Settings panel in stead.
+        if (v.getId()==R.id.settings_button){
+            startActivity(new Intent(LaunchActivity.this,SettingsActivity.class));
+        }
+        else{
+            startActivity(new Intent(LaunchActivity.this,Listening.class));
+        }
     }
+
 }
