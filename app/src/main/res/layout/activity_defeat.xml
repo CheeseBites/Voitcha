@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/defeat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAllCaps="true"
+        android:text="@string/incorrect_text"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="#f00"
+        android:background="#000"
+        android:textSize="55dp"
+        android:textStyle="bold"/>
+</LinearLayout>
