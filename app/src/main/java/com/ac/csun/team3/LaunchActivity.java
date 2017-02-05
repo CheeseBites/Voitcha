@@ -7,10 +7,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+/**
+ * Created by Ian on 2/3/2017.
+ * Launch page, app launches to here. Contains generic warning 'make sure audio is on'
+ * Also contains link to Settings panel for various visual options
+ * The entire screen apart from the settings gear is a button that advances to the actual
+ * "capcha replacement" system.
+ */
 
 public class LaunchActivity extends Activity implements OnClickListener {
     private ImageView settingsButton;
     private RelativeLayout launch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +31,7 @@ public class LaunchActivity extends Activity implements OnClickListener {
     }
 
     @Override
-    public void onClick(View v) { //The full screen is a button handler, used to advance.
-        //However, the Settings gear button links to the Settings panel in stead.
+    public void onClick(View v) {
         if (v.getId()==R.id.settings_button){
             startActivity(new Intent(LaunchActivity.this,SettingsActivity.class));
         }

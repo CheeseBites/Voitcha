@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+/**
+ * Created by Ian / Victoria, 2/4/2017
+ * If the user enters [default=3] incorrect answers, they are condemned to their fate on this screen
+ * (However, the full screen is also a button that links back to the launch page)
+ * In an actual implementation, this would have an additional delay timer
+ */
+
 public class Defeat extends Activity implements View.OnClickListener{
     private RelativeLayout defeated;
 
@@ -18,7 +25,7 @@ public class Defeat extends Activity implements View.OnClickListener{
     }
 
     public void onClick(View v) {
-            startActivity(new Intent(Defeat.this,LaunchActivity.class));
+        startActivity(new Intent(Defeat.this,LaunchActivity.class));
     }
 }
 
