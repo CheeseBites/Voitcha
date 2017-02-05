@@ -1,12 +1,15 @@
 package com.ac.csun.team3;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 /**
  * Created by Ian on 2/3/2017.
  * Launch page, app launches to here. Contains generic warning 'make sure audio is on'
@@ -18,16 +21,25 @@ import android.widget.RelativeLayout;
 public class LaunchActivity extends Activity implements OnClickListener {
     private ImageView settingsButton;
     private RelativeLayout launch;
+    public static int col=-32767;
+    public static int txt=-32767;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+        if (col==-32767) col=Color.WHITE;
+        if (txt==-32767) txt=Color.BLACK;
+
+
+        RelativeLayout LA = (RelativeLayout) findViewById(R.id.activity_launch);
+        LA.setBackgroundColor(col);
+        TextView intro = (TextView) findViewById(R.id.textView);
+        intro.setTextColor(txt);
 
         settingsButton = (ImageView)findViewById(R.id.settings_button);
-        launch = (RelativeLayout)findViewById(R.id.activity_launch);
         settingsButton.setOnClickListener(this);
-        launch.setOnClickListener(this);
+        LA.setOnClickListener(this);
     }
 
     //Press Gear to go to Settings panel. Press anywhere else to advance to the main app.

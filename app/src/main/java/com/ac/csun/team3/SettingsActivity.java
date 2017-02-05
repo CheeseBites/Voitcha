@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import android.widget.AdapterView;
+
+import static com.ac.csun.team3.LaunchActivity.col;
+import static com.ac.csun.team3.LaunchActivity.txt;
 
 /**
  * Created by George, 2/4/2017
@@ -79,37 +84,51 @@ public class SettingsActivity extends Activity implements OnClickListener{
      * Takes input from Spinner object and selects color for the background of the device
      */
     public class CustomOnItemSelectedListener implements OnItemSelectedListener {
-        LinearLayout l1 = (LinearLayout)findViewById(R.id.activity_settings);
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
 
             String colorSelection = parent.getItemAtPosition(pos).toString();
-           Spinner textElement = (Spinner) findViewById(R.id.color_spinner);
             switch(colorSelection){
                 case "White":
-                    l1.setBackgroundColor(Color.WHITE);
+                    col=Color.WHITE;
+                    txt=Color.BLACK;
                     break;
 
                 case "Pink":
-                    l1.setBackgroundColor(Color.MAGENTA);
+                    col=Color.MAGENTA;
+                    txt=Color.BLACK;
                     break;
 
                 case "Blue":
-                    l1.setBackgroundColor(Color.BLUE);
+                    col=Color.BLUE;
+                    txt=Color.WHITE;
                     break;
 
                 case "Green":
-                    l1.setBackgroundColor(Color.GREEN);
+                    col=Color.GREEN;
+                    txt=Color.WHITE;
                     break;
 
                 case "Yellow":
-                    l1.setBackgroundColor(Color.YELLOW);
+                    col=Color.YELLOW;
+                    txt=Color.BLACK;
                     break;
 
                 case "Dark Gray":
-                    l1.setBackgroundColor(Color.DKGRAY);
-                    textElement.setDrawingCacheBackgroundColor(Color.WHITE);
+                    col=Color.DKGRAY;
+                    txt=Color.WHITE;
                     break;
 
+            }
+            try {
+                LinearLayout LS;
+                LS = (LinearLayout) findViewById(R.id.activity_settings);
+                LS.setBackgroundColor(col);
+
+                Button conf = (Button) findViewById(R.id.btnSubmit);
+                conf.setTextColor(txt);
+            }
+            catch (Exception x){
+                Log.e("Error","Color change failed");
             }
             }
 

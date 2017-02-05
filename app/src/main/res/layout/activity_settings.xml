@@ -14,7 +14,8 @@
         android:prompt="@string/color_prompt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight=".50" />
+        android:layout_weight=".50"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -22,6 +23,6 @@
         android:layout_height="wrap_content"
         android:text="@string/submit_text"
         android:layout_weight="0.5"
-        android:textColor="@color/white"/>
+        android:textSize="60sp"/>
 
 </LinearLayout>

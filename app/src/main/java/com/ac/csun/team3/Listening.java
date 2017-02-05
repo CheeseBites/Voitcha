@@ -9,6 +9,8 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -37,6 +39,17 @@ public class Listening extends Activity {
         setContentView(R.layout.activity_listening);
 
         randQuestion = new QuestionGenerator(); //"Instantiate for a new question"
+
+
+        LinearLayout LL = (LinearLayout) findViewById(R.id.activity_listening);
+        LL.setBackgroundColor(LaunchActivity.col);
+        TextView RCBT, REBT, SBT;
+        RCBT = (TextView) findViewById(R.id.record_button_text);
+        REBT = (TextView) findViewById(R.id.repeat_button_text);
+        SBT = (TextView) findViewById(R.id.skip_button_text);
+        RCBT.setTextColor(LaunchActivity.txt);
+        REBT.setTextColor(LaunchActivity.txt);
+        SBT.setTextColor(LaunchActivity.txt);
 
         //create Text To Speech, to ask a question
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
