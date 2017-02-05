@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Build;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
@@ -15,25 +13,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
-import java.util.Locale;
-
-import static android.R.attr.text;
 
 public class Listening extends Activity {
     private QuestionGenerator randQuestion;
     private static final int MAX_TRIES = 3;
     private TextToSpeech tts;
+    int counter = 0;
 
-//    private long startTime = 0L;
-//    private long timeInMillis=0L;
-//    private long delayTime=8000L;
-//    private Handler wait = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +39,6 @@ public class Listening extends Activity {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "This Language is not supported");
                     }
-                    // speak("Listening...");
-
                     speak(randQuestion.question);
 
                 } else {
@@ -65,9 +50,7 @@ public class Listening extends Activity {
         findViewById(R.id.micButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 listen();
-
             }
         });
 
@@ -126,16 +109,16 @@ public class Listening extends Activity {
 
     private void recognition(String text) {
         Log.e("Speech", "" + text);
-        // counter for number of tries
-        int counter = 0;
-        // if(text.equals(randQuestion.answer)
-        if (text.equals("4") || text.equals("four")) {
-            Log.i("Feedback", "That is correct!");
+
+        if (text.equals("" + randQuestion.answer) || text.equals("" + randQuestion.answer)) {
+            Log.i("Feedback", "That is correct!"+ randQuestion.answer);
+            startActivity(new Intent(Listening.this,Victory.class));
         } else {
-            Log.i("Feedback", "incorrect!");
+            Log.i("Feedback", "incorrect!" + randQuestion.answer);
             counter++;
-            if (counter == MAX_TRIES) {
+            if (counter >= MAX_TRIES) {
                 Log.i("Feedback", "Max tries reached.");
+                startActivity(new Intent(Listening.this,Defeat.class));
             }
         }
     }
@@ -148,19 +131,6 @@ public class Listening extends Activity {
             }
             super.onDestroy();
         }
-/*
-    private Runnable waitTime = new Runnable(){
-        public void run(){
-            timeInMillis=SystemClock.uptimeMillis();
-            if(timeInMillis-startTime>=delayTime){
-                checkAnswer();
-            }
-            else{
-                wait.postDelayed(this, 0);
-            }
-        }
-    };
-*/
 
     }
 

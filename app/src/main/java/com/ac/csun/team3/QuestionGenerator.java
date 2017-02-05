@@ -10,7 +10,7 @@ public class QuestionGenerator {
     Random random = new Random();
     private int n = random.nextInt(10) + 1;
     private int m = random.nextInt(10) + 1;
-    private int answer;
+     int answer;
 
     String question;
     String q_part_1 = "What is ";

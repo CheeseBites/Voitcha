@@ -22,7 +22,8 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             />
-        <activity android:name=".Victory" />
+        <activity android:name=".Victory" />a
+        <activity android:name=".Defeat" />
         <activity android:name=".Listening"/>
 
     </application>
