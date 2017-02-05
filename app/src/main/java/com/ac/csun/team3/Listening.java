@@ -37,6 +37,7 @@ public class Listening extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening);
        // settingsButton = (ImageView) findViewById(R.id.settings_button);

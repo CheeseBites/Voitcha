@@ -1,16 +1,4 @@
 <resources>
-    <string name="app_name">Team3</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="correct_text">Correct!</string>
-    <string name="Question_Starting">Question Is Playing</string>
-    <string name="incorrect_text">Incorrect</string>
-    <string name="incorrect_picture">Inccorect</string>
-    <string name="retry_text">Retry</string>
-    <string name="doge_pic">Pic of doge</string>
-    <string name="restart_text">RESTART</string>
-    <string name="welcome_text">Please Ensure Volume Is Turned On And Tap Screen To Continue</string>
-    <string name="re">Retry</string>
-    <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
@@ -75,21 +63,22 @@
 
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
-
     <string name="pref_title_new_message_notifications">New message notifications</string>
-
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
-
     <string name="pref_title_vibrate">Vibrate</string>
-
-
+    <string name="app_name">Team3</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="repeat_button">Click button to repeat question.</string>
+    <string name="skip_button">Tap button to try another question.</string>
+    <string name="record_button">Tap button to start recording your answer.</string>
     <string name="intro_message">For security reasons, please answer the following question
-        before proceeding.</string>
+            before proceeding.</string>
     <string name="instructions">Turn up your volume, then tap the screen to continue.</string>
     <string name="app_speaking">Speaking now.</string>
     <string name="alt_text_correct">Check Mark, correct!</string>
     <string name="alt_text_incorrect">Wrong Answer</string>
-    <string name="correct">Correct!</string>
-
+    <string name="correct_text">Correct!</string>
+    <string name="incorrect_text">Incorrect!</string>
+    <string name ="welcome_text">Please turn up the volume and tap to continue</string>
 </resources>

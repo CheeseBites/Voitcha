@@ -8,8 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ac.csun.team3.LaunchActivity"
-    android:onClick="captchaScreen">
+    tools:context="com.ac.csun.team3.LaunchActivity">
 
 
     <ImageView
@@ -22,13 +21,14 @@
         android:background="@drawable/settings_icon"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="@string/welcome_text"
-        android:gravity="center_horizontal|center"
-        android:id="@+id/LaunchText"
-        android:textSize="50sp"
-        android:layout_centerVertical="true"
+        android:textSize="65dp"
+        android:id="@+id/welcomeButton"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>

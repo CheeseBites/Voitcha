@@ -10,18 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal"
     tools:context="com.ac.csun.team3.Listening">
-
-
-
-
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
 
         <LinearLayout
             android:orientation="horizontal"
@@ -29,14 +22,48 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
+            <TextView
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="@string/record_button"
+                android:id="@+id/record_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
         </LinearLayout>
 
-        <ImageButton
-            android:src="@drawable/mic"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/micButton"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+            <TextView
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="@string/repeat_button"
+                android:id="@+id/repeat_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:textSize="25dp"
+                android:text="@string/skip_button"
+                android:id="@+id/skip_button_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -46,18 +73,24 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <ImageButton
+            android:src="@drawable/mic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </LinearLayout>
+            android:id="@+id/micButton"
+            android:layout_weight="1" />
 
         <ImageButton
             android:src="@drawable/replay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/replayButton"
+            android:layout_weight="1" />
+        <ImageButton
+            android:src="@drawable/skip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/skipButton"
             android:layout_weight="1" />
 
     </LinearLayout>
